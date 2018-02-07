@@ -20,6 +20,9 @@
         function initAll() {
             initPlus();
             initMinus();
+            actionPlus();
+            actionMinus();
+
             // initPlusSubtotal();
         }
 
@@ -61,6 +64,28 @@
             newsubtotal.value = value * 32;
         }
 
+        function actionPlus() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://digitalinsurance.io/shop", false);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+            var response = JSON.parse(xhttp.responseText);
+        }
+
+        function actionMinus() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://digitalinsurance.io/shop", false);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+            var response = JSON.parse(xhttp.responseText);
+        }
+
+        function subtotal() {
+            let subtotal = document.querySelector(".newsubtotal");
+            let input = document.querySelector("input");
+            let quantity = parseInt(input.value);
+            subtotal.value = 32 * quantity;
+        }
     </script>
 
     <style>
@@ -238,11 +263,11 @@
             </div>
 
             <div class="quantity">
-                <button class="minus-btn" type="button" name="minus-button">
+                <button class="minus-btn" type="button" name="minus-button" onclick="actionMinus()">
                     <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
                 <input type="text" name="name" value="1" onchange="subtotal()">
-                <button class="plus-btn" type="button" name="plus-button">
+                <button class="plus-btn" type="button" name="plus-button" onclick="actionPlus()">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
@@ -271,7 +296,7 @@
             </div>
 
             <div class="quantity">
-                <button class="minus-btn" type="button" name="minus-button">
+                <button class="minus-btn" type="button" name="minus-button" onclick="action()">
                     <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
                 <input type="text" name="name" value="1">
