@@ -23,9 +23,19 @@
             subtotal();
         }
 
+        // function createProduct() {
+        //     const div = document.createElement("div");
+        //     div.setAttribute("class", "product");
+
+        //     const image = document.createElement("div");
+        //     div.setAttribute("class", "image");
+
+        //     div.appendChild(image);
+        // }
+
         function initPlus() {
-            let plusButton = document.querySelector(".plus-btn");
-            plusButton.onclick = plusOne;
+            const plusButtons = document.querySelectorAll(".plus-btn");
+            plusButtons.forEach(button => button.onclick = plusOne);
         }
 
         function plusOne(event) {
@@ -36,8 +46,8 @@
         }
 
         function initMinus() {
-            let plusButton = document.querySelector(".minus-btn");
-            plusButton.onclick = minusOne;
+            let plusButton = document.querySelectorAll(".minus-btn");
+            plusButton.forEach(button => button.onclick = minusOne);
         }
 
         function minusOne(event) {
