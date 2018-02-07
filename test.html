@@ -20,7 +20,7 @@
         function initAll() {
             initPlus();
             initMinus();
-            subtotal();
+            // initPlusSubtotal();
         }
 
         // function createProduct() {
@@ -41,8 +41,10 @@
         function plusOne(event) {
             let input = event.target.closest("div").querySelector("input");
             let value = parseInt(input.value);
+            let newsubtotal = event.target.closest(".product").querySelector(".newsubtotal");
             value += 1;
             input.value = value;
+            newsubtotal.value = value * 32;
         }
 
         function initMinus() {
@@ -53,17 +55,12 @@
         function minusOne(event) {
             let input = event.target.closest("div").querySelector("input");
             let value = parseInt(input.value);
+            let newsubtotal = event.target.closest(".product").querySelector(".newsubtotal");
             value >= 1 ? (value = value - 1) : value
             input.value = value;
+            newsubtotal.value = value * 32;
         }
 
-
-        function subtotal() {
-            let subtotal = document.querySelector(".newsubtotal");
-            let input = document.querySelector("input");
-            let quantity = parseInt(input.value);
-            subtotal.value = 31.5 * quantity;
-        }
     </script>
 
     <style>
@@ -277,7 +274,7 @@
                 <button class="minus-btn" type="button" name="minus-button">
                     <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
-                <input type="text" name="name" value="1" onchange="subtotal()">
+                <input type="text" name="name" value="1">
                 <button class="plus-btn" type="button" name="plus-button">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
@@ -286,8 +283,9 @@
             <div class="subtotal">
                 <input class="newsubtotal" type="text" name="name" value="32" readonly>
             </div>
-
         </div>
+
+    </div>
 
 
 
